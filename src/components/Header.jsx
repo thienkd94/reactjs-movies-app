@@ -1,21 +1,12 @@
-import React from 'react';
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import { green } from "@material-ui/core/colors";
 import IconButton from "@material-ui/core/IconButton";
-import {
-  createMuiTheme,
-  makeStyles,
-  ThemeProvider
-} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import AddMovie from '../features/Movies/components/AddMovie';
-import WatchList from '../features/Movies/components/WatchList';
-import Watched from '../features/Movies/components/Watched';
 
 Header.propTypes = {};
 
@@ -41,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   activeNav: {
     color: "#FF886F",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   button: {
     display: "flex",
@@ -61,13 +52,13 @@ const useStyles = makeStyles((theme) => ({
 function Header(props) {
   const classes = useStyles();
 
-  const theme = createMuiTheme({
-    palette: {
-      primary: {
-        main: green[500],
-      },
-    },
-  });
+  // const theme = createMuiTheme({
+  //   palette: {
+  //     primary: {
+  //       main: green[500],
+  //     },
+  //   },
+  // });
 
   return (
     <div className={classes.root}>
@@ -105,20 +96,6 @@ function Header(props) {
             <AddIcon />
             Add
           </NavLink>
-
-          {/* <Button color="inherit">Watch list</Button>
-            <Button color="inherit">Watched</Button>
-            <ThemeProvider theme={theme}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                className={classes.button}
-                startIcon={<AddIcon />}
-              >
-                Add
-              </Button>
-            </ThemeProvider> */}
         </Toolbar>
       </AppBar>
     </div>

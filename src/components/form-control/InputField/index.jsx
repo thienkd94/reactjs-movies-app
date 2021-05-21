@@ -1,14 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
+import { Controller } from "react-hook-form";
 
-InpuField.propTypes = {};
+InpuField.propTypes = {
+  form: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  disabled: PropTypes.bool,
+};
 
 function InpuField(props) {
+  const { form, name, label, disabled } = props;
+
   return (
-    <div>
-      <TextField fullWidth label="Search for a movie" variant="outlined" />
-    </div>
+    <Controller
+      name={name}
+      control={form.control}
+      render={({ field }) => {
+        return <TextField {...field} label={label} disabled={disabled} fullWidth variant="outlined" />;
+      }}
+    />
   );
 }
 
