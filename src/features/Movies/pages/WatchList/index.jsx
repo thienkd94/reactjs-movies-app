@@ -29,7 +29,7 @@ function WatchList(props) {
     <div>
       {/* <Container maxWidth="md" className={classes.bgColor}> */}
         <Typography variant="h5" gutterBottom>
-          My Watch List
+          Danh sách của tôi
         </Typography>
         <Container className={classes.wrapPaper}>
           <Paper variant="outlined" />

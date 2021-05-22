@@ -82,7 +82,7 @@ function Header(props) {
             className={classes.link}
             activeClassName={classes.activeNav}
           >
-            Watch List
+            Danh sách
           </NavLink>
           <NavLink
             to="/watched"
@@ -90,11 +90,11 @@ function Header(props) {
             className={classes.link}
             activeClassName={classes.activeNav}
           >
-            Watched
+            Đã xem
           </NavLink>
           <NavLink to="/add" className={classes.button}>
             <AddIcon />
-            Add
+            Thêm
           </NavLink>
         </Toolbar>
       </AppBar>

@@ -18,7 +18,15 @@ function InpuField(props) {
       name={name}
       control={form.control}
       render={({ field }) => {
-        return <TextField {...field} label={label} disabled={disabled} fullWidth variant="outlined" />;
+        return (
+          <TextField
+            {...field}
+            label={label}
+            disabled={disabled}
+            fullWidth
+            variant="outlined"
+          />
+        );
       }}
     />
   );

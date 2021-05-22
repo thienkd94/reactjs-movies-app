@@ -8,21 +8,22 @@ MovieForm.propTypes = {
 };
 
 function MovieForm(props) {
-  const { onSubmit } = props;
+  const { onChange } = props;
   const form = useForm({
+    mode: "onChange",
     defaultValues: {
       keyword: "",
     },
   });
 
-  const handleFormSubmit = (value) => {
-    if (onSubmit) {
-      onSubmit(value);
+  const handleFormChange = (value) => {
+    if (onChange) {
+      onChange(value);
     }
   };
 
   return (
-    <form onSubmit={form.handleSubmit(handleFormSubmit)}>
+    <form onChange={form.handleSubmit(handleFormChange)}>
       <InputField name="keyword" label="Search for a movie" form={form} />
     </form>
   );
