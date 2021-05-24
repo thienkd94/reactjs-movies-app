@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-MovieFeature.propTypes = {
+TrendingPage.propTypes = {
 
 };
 
-function MovieFeature(props) {
+function TrendingPage(props) {
   return (
     <div>
-      Movie Feature
+      Trending Page
     </div>
   );
 }
 
-export default MovieFeature;
+export default TrendingPage;

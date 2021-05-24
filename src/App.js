@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MovieFeature from './features/Movies';
-import Header from './components/Header';
+import Navigation from './components/Navigation';
 
 function App() {
 
@@ -19,8 +19,8 @@ function App() {
 
   return (
     <div>
-      <Header />
       <MovieFeature />
+      <Navigation />
     </div>
   );
 }
