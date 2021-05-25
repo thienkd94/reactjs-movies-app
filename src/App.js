@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import MovieFeature from './features/Movies';
+<<<<<<< HEAD
 import Header from './components/Header';
 import { Route, Switch } from "react-router-dom";
 import WatchList from './features/Movies/pages/WatchList'
 import Watched from './features/Movies/pages/Watched'
+=======
+import Navigation from './components/Navigation';
+>>>>>>> origin/thienkd
 
 function App() {
 
@@ -22,6 +26,7 @@ function App() {
 
   return (
     <div>
+<<<<<<< HEAD
       <Header />
 
       <Switch>
@@ -36,6 +41,10 @@ function App() {
               <AddMovie onChange={handleMovieFormChange} results={results}/>
             </Route> */}
       </Switch>
+=======
+      <MovieFeature />
+      <Navigation />
+>>>>>>> origin/thienkd
     </div>
   );
 }

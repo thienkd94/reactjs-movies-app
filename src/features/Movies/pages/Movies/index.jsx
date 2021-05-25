@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-MovieFeature.propTypes = {
+MoviesPage.propTypes = {
 
 };
 
-function MovieFeature(props) {
+function MoviesPage(props) {
   return (
     <div>
-      Movie Feature
+      Movies Page
     </div>
   );
 }
 
-export default MovieFeature;
+export default MoviesPage;
