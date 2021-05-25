@@ -3,7 +3,6 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-
 const useStyles = makeStyles((theme) => ({
   bgColor: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -18,9 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-WatchList.propTypes = {
-
-};
+WatchList.propTypes = {};
 
 function WatchList(props) {
   const classes = useStyles();
@@ -28,13 +25,13 @@ function WatchList(props) {
   return (
     <div>
       {/* <Container maxWidth="md" className={classes.bgColor}> */}
-        <Typography variant="h5" gutterBottom>
-          Danh sách của tôi
-        </Typography>
-        <Container className={classes.wrapPaper}>
-          <Paper variant="outlined" />
-          <Paper variant="outlined" />
-        </Container>
+      <Typography variant="h5" gutterBottom>
+        Danh sách của tôi
+      </Typography>
+      <Container className={classes.wrapPaper}>
+        <Paper variant="outlined" />
+        <Paper variant="outlined" />
+      </Container>
       {/* </Container> */}
     </div>
   );

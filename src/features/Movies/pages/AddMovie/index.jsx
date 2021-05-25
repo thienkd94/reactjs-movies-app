@@ -15,9 +15,6 @@ function AddMovie(props) {
   return (
     <div>
       <MovieForm onChange={onChange} />
-      <ul>
-
-      </ul>
     </div>
   );
 }

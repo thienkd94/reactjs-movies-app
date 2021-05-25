@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import MovieFeature from './features/Movies';
 import Header from './components/Header';
+import { Route, Switch } from "react-router-dom";
+import WatchList from './features/Movies/pages/WatchList'
+import Watched from './features/Movies/pages/Watched'
 
 function App() {
 
@@ -20,7 +23,19 @@ function App() {
   return (
     <div>
       <Header />
-      <MovieFeature />
+
+      <Switch>
+        <Route exact path="/">
+          {/* <WatchList /> */}
+          <MovieFeature />
+        </Route>
+        <Route path="/watched">
+          <Watched />
+        </Route>
+        {/* <Route path="/add">
+              <AddMovie onChange={handleMovieFormChange} results={results}/>
+            </Route> */}
+      </Switch>
     </div>
   );
 }

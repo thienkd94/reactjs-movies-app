@@ -1,0 +1,8 @@
+.result {
+  position: absolute;
+  background-color: orangered;
+  z-index: 2;
+  &__item {
+    list-style: none;
+  }
+}

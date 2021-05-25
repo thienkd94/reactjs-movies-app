@@ -92,10 +92,10 @@ function Header(props) {
           >
             Đã xem
           </NavLink>
-          <NavLink to="/add" className={classes.button}>
+          {/* <NavLink to="/add" className={classes.button}>
             <AddIcon />
             Thêm
-          </NavLink>
+          </NavLink> */}
         </Toolbar>
       </AppBar>
     </div>
