@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MovieFeature from './features/Movies';
 import Navigation from './components/Navigation';
+import Header from './components/Header';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       <MovieFeature />
       <Navigation />
     </div>

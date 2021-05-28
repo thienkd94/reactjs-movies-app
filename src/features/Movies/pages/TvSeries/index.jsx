@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-SeriesPage.propTypes = {
+TvSeriesPage.propTypes = {
 
 };
 
-function SeriesPage(props) {
+function TvSeriesPage(props) {
   return (
     <div>
       Series Page
@@ -13,4 +13,4 @@ function SeriesPage(props) {
   );
 }
 
-export default SeriesPage;
+export default TvSeriesPage;
