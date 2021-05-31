@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import MovieFeature from './features/Movies';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
+import './App.css';
 
 function App() {
-
   //   const [movies, setMovies] = useState([]);
 
   //   useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
   // }, []);
 
   return (
-    <div>
+    <div className="app">
       <Header />
       <MovieFeature />
       <Navigation />

@@ -1,13 +1,9 @@
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BASE_IMAGE_URL } from '../../config/main';
+import './styles.scss';
 
 const useStyles = makeStyles({
   root: {
@@ -24,30 +20,25 @@ function MovieCard(props) {
   const { movie } = props;
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="300"
-          image={BASE_IMAGE_URL + movie.poster_path}
-          title={movie.title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h5">
-            {movie.title || movie.name}
-          </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents
-            except Antarctica
-          </Typography> */}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Typography variant="overline">{movie.media_type}</Typography>
-        <Typography variant="overline">{movie.release_date}</Typography>
-      </CardActions>
-    </Card>
+    <div className="card">
+      <div className="card__img">
+        <img src={BASE_IMAGE_URL + movie.poster_path} alt={movie.title} />
+      </div>
+      <div className="card__content">
+        <div className="card__info">
+          <span className="card__category">{movie.media_type}</span>
+          <span className="card__date">{movie.release_date || movie.first_air_date}</span>
+        </div>
+        <div className="card__title">{movie.title || movie.name}</div>
+      </div>
+      <div className="card__overlay">
+        {movie.media_type === 'movie' ? (
+          <Link to={`movie/${movie.id}`}>Detail</Link>
+        ) : (
+          <Link to={`tv/${movie.id}`}>Detail</Link>
+        )}
+      </div>
+    </div>
   );
 }
 

@@ -1,4 +1,8 @@
 .trending {
+  &__title {
+    color: #C2CFE0;
+    padding: 20px 0 10px;
+  }
   &__list {
     display: flex;
     flex-wrap: wrap;

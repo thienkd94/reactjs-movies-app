@@ -1,5 +1,9 @@
 .header {
   &__title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     margin: 0;
     padding: 1.5rem;
     text-align: center;
@@ -7,6 +11,7 @@
     color: #E29E21;
     background-color: #2B4965;
     letter-spacing: 0.2rem;
+    z-index: 999;
     //  box-shadow: 0 8px 6px -6px #fff;
   }
 }
