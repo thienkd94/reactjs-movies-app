@@ -4,9 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Image from 'material-ui-image';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { BASE_IMAGE_URL } from '../../config/main';
 import './styles.scss';
+import Button from '@material-ui/core/Button';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import Dialog from '@material-ui/core/Dialog';
+import { DialogActions, DialogContent } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,14 +19,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 MovieDetail.propTypes = {
-  result: PropTypes.object.isRequired,
+  movie: PropTypes.object.isRequired,
+  video: PropTypes.object.isRequired,
 };
 
 function MovieDetail(props) {
   const classes = useStyles();
-  const { result } = props;
+  const [open, setOpen] = useState(false);
+  const { movie, video } = props;
 
-  console.log(result);
+  const openDialog = () => {
+    setOpen(true);
+  };
+  const closeDialog = () => {
+    setOpen(false);
+  };
+
 
   return (
     <div className="detail">
@@ -30,36 +42,68 @@ function MovieDetail(props) {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={5}>
             <Image
-              src={`${BASE_IMAGE_URL}${result.poster_path}`}
+              src={`${BASE_IMAGE_URL}${movie?.poster_path}`}
               animationDuration={500}
               // imageStyle={{ height: 'auto' }}
-              aspectRatio={0.8}
+              aspectRatio={0.7}
             />
           </Grid>
           <Grid item xs={12} sm={7}>
             <Typography variant="h4" gutterBottom>
-              {result.title || result.name}
+              {movie.title || movie.name}
             </Typography>
             <Divider />
-            {/* <Grid>
+            <Grid>
             <Typography variant="body1" gutterBottom>
-              Genre:
+                {/* Genre: {movie?.genres.map(genre => {
+                  return {genre.id}
+              })} */}
             </Typography>
-          </Grid> */}
+          </Grid>
             <Grid>
               <Typography variant="body1" gutterBottom>
-                Runtime: {result.runtime} minutes
+                Runtime: {movie.runtime} minutes
               </Typography>
             </Grid>
             <Grid>
               <Typography variant="body1" gutterBottom>
-                Release date: {result.release_date}
+                Release date: {movie.release_date}
               </Typography>
             </Grid>
             <Grid>
               <Typography variant="body1" gutterBottom>
-                Overview: {result.overview}
+                Overview: {movie.overview}
               </Typography>
+            </Grid>
+            <Grid>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                startIcon={<PlayCircleOutlineIcon />}
+                onClick={openDialog}
+              >
+                WATCH THE TRAILER
+              </Button>
+              <Dialog fullWidth={true} maxWidth="md" open={open} aria-labelledby="max-width-dialog-title">
+                <DialogContent>
+                  <iframe
+                    width="100%"
+                    height="500"
+                    src={`https://www.youtube.com/embed/${video?.key}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={closeDialog} color="primary">
+                    Close
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </Grid>
           </Grid>
         </Grid>

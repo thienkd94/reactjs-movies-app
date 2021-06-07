@@ -1,37 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import MovieDetail from '../../../../components/MovieDetail';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axiosClient from '../../../../api/axiosClient';
+import MovieDetail from '../../../../components/MovieDetail';
 
 Detail.propTypes = {};
 
 function Detail(props) {
   let { id, type } = useParams();
 
-  const [result, setResult] = useState({});
+  const [movie, setMovie] = useState({});
+  const [video, setVideo] = useState({});
 
-  const fetchData = async () => {
-    const data = await axiosClient.get(`movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`);
+  const fetchMovieDetail = async () => {
+    const movie = await axiosClient.get(`movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`);
 
-    // const video = await axiosClient.get(`movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}`);
+    setMovie(movie);
+  };
 
-    // console.log("DATA",data)
-    // console.log("video",video)
+  const fetchMovieVideo = async () => {
+    const video = await axiosClient.get(`movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}`);
 
-    setResult(data)
-  }
+    setVideo(video.results[0]);
+  };
 
   useEffect(() => {
     // axiosClient.get(`movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`).then((res) => {
-    //   setResult(res);
+    //   setMovie(res);
     // });
-    fetchData();
-  }, []);
+    fetchMovieDetail();
+    fetchMovieVideo();
+  }, [id]);
+
+  //  useEffect(() => {
+  //    axiosClient.get(`movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}`).then((res) => {
+  //     setVideo(res?.results[0]);
+  //    });
+  //  }, [id]);
 
   return (
     <div>
-      <MovieDetail result={result} />
+      <MovieDetail movie={movie} video={video} />
     </div>
   );
 }
