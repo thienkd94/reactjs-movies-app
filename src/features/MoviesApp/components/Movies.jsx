@@ -39,7 +39,7 @@ function Movies() {
     return (
         <div className="bg-[#374955] min-h-[calc(100vh-64px)] relative">
             <ToastContainer />
-            <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div className="max-w-2xl mx-auto py-20 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <h2 className="text-xl font-bold tracking-tight text-gray-200">Phim</h2>
                 {isLoading && (
                     <span className="flex items-center text-gray-100 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2">
