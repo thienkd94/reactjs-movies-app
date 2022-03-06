@@ -18,6 +18,7 @@ const useStyles = makeStyles(() => ({
 TvSeriesPage.propTypes = {};
 
 function TvSeriesPage(props) {
+  console.log('a')
   const classes = useStyles();
   const [page, setPage] = useState(1);
   const [tvs, setTvs] = useState([]);
