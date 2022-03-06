@@ -8,7 +8,6 @@ import { BASE_IMAGE_URL } from '../constants'
 
 function Detail() {
     const { id, type } = useParams()
-    console.log('useParams', useParams())
     const [movie, setMovie] = useState({})
     const [videos, setVideos] = useState({})
     const [isError, setError] = useState(false)

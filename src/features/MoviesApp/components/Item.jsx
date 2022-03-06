@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Item(props) {
     const { item, baseImageUrl } = props
     return (
-        <Link to={`/${item.media_type}/${item.id}`}>
+        <Link to={`/${item.media_type || 'movie'}/${item.id}`}>
             <div className="w-full h-[410px] flex flex-col justify-between bg-[#637583] dark:border-gray-700 rounded-lg mb-6 group overflow-hidden hover:bg-[#ECFCFF] relative">
                 <div className="w-full h-72">
                     <img
