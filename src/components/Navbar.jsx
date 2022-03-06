@@ -89,7 +89,7 @@ function Navbar({ genres }) {
                                         </svg>
                                     </button>
                                     {isShowDropdownMenu && (
-                                        <div className="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right h-96">
+                                        <div className="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right h-96 sm:h-auto">
                                             <div className="px-2 pt-2 pb-4 bg-[#435a69] text-gray-200 rounded-md shadow-lg dark-mode:bg-gray-700 h-full overflow-auto">
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     {genres.map((genre) => {
