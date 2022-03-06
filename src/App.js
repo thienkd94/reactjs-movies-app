@@ -1,30 +1,9 @@
-import React, { useState } from 'react';
-import MovieFeature from './features/Movies';
-import Navigation from './components/Navigation';
-import Header from './components/Header';
-import './App.css';
+import MoviesApp from './features/MoviesApp'
+import 'react-toastify/dist/ReactToastify.css'
+import '../node_modules/boxicons/css/boxicons.min.css'
 
 function App() {
-  //   const [movies, setMovies] = useState([]);
-
-  //   useEffect(() => {
-  //   axios
-  //     .get(
-  //       "https://api.themoviedb.org/3/search/movie?api_key=b3c1945e566d304541e10715aa84c29b&language=vi-VN&page=1&include_adult=false&query=star"
-  //     )
-  //     .then(function (response) {
-  //       setMovies(response.data.results)
-  //       console.log(response.data.results);
-  //     });
-  // }, []);
-
-  return (
-    <div className="app">
-      <Header />
-      <MovieFeature />
-      <Navigation />
-    </div>
-  );
+    return <MoviesApp />
 }
 
-export default App;
+export default App
